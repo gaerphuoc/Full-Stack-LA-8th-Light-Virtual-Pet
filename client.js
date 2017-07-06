@@ -1,7 +1,8 @@
 var pet_info = {
   "name": "Tomagatchi Dog",
   "weight": 10,
-  "happiness": 2
+  "happiness": 2,
+  "age": 1
   
 }
 
@@ -17,13 +18,15 @@ $(function() {
   
 })
 
-  // Add a variable "pet_info" equal to a dictionary with the name (string), weight (number), and happiness (number) of the pet
+  // Add a variable "pet_info" equal to a dictionary with the name (string), weight (number), and happiness (number) of your pet
 
   function clickedTreatButton() {
     // Increase pet happiness
     pet_info.happiness ++;
     // Increase pet weight
     pet_info.weight++;
+    
+    pet_info.age++;
     checkAndUpdatePetInfoInHtml();
   }
   
@@ -32,6 +35,8 @@ $(function() {
     pet_info.happiness++;
     // Decrease pet weight
     pet_info.weight--;
+    
+    pet_info.age++;
     checkAndUpdatePetInfoInHtml();
   }
   
@@ -40,6 +45,8 @@ $(function() {
     pet_info.happiness--;
     // Decrease pet weight
     pet_info.weight--;
+    
+    pet_info.age++;
     checkAndUpdatePetInfoInHtml();
   }
 
@@ -49,12 +56,10 @@ $(function() {
   }
   
   function checkWeightAndHappinessBeforeUpdating() {
-    //Can't have a weightless dog
-    // Add conditional so if weight is lower than zero, set it back to one
+    // Add conditional so if weight is lower than zero, set it back to zero
     if (pet_info.weight<=0){
       pet_info.weight = 1;
     }
-    // Add conditional so if happiness is lower than zero, set it back to zero
     if (pet_info.happiness<=0){
       pet_info.happiness = 0;
     }
@@ -66,4 +71,5 @@ $(function() {
     $('.name').text(pet_info['name']);
     $('.weight').text(pet_info['weight']);
     $('.happiness').text(pet_info['happiness']);
+    $('.age').text(pet_info['age']);
   }
